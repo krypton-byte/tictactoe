@@ -29,7 +29,6 @@ async def run():
                     tik.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
                 except Exception as e:
                     pass
-            print(tik.BestMove())
             await tik.check(i)
 
 async def withAI():
@@ -54,13 +53,14 @@ async def withAI():
                             break
                         else:
                             pass
-                    except IndexError:
-                        tik.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
                     except Exception as e:
                         pass
             else:
-                await tik.add(i, tik.Attack(i)[i][0][0] if i=="X" else tik.BestMove()[i][0][0])
-                tik.print()
+                try:
+                    await tik.add(i, tik.Attack(i)[i][0][0] if i=="X" else tik.BestMove()[i][0][0])
+                    tik.print()
+                except IndexError:
+                    tik.board = [0, 1, 2, 3, 4, 5, 6, 7, 8]
             await tik.check(i)
 
          
