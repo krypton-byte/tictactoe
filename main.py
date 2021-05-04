@@ -144,5 +144,4 @@ class tictactoe:
                 print(f"{player}: WIN")
                 self.board = [0,1,2,3,4,5,6,7,8]
                 self.scoreboard(player, 10)
-loop = asyncio.get_event_loop()
 asyncio.run(Choose())
